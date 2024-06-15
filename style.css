@@ -6,9 +6,10 @@ coloque nas sessões indicadas*/
 
 :root{
     /* Inserta la variable de los otros colores inspeccionando el exemplo de figma */
-    /*Se esforce para trabalhar com variáveis, é uma dica profissional valiosa*/
    --cor-de-fundo: #F5F5F5;
    --cor-de-link: #000;
+   --cor-de-hover-link: #08a5ba; 
+   --cor-de-title: #333;
 }
 
 body {
@@ -18,6 +19,9 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1;
+    width: 100%;
+    overflow: auto;
+    position: relative;
 }
 ol, ul,li {
     list-style: none;
@@ -26,6 +30,79 @@ a{
     text-decoration: none;
     color: var(--cor-de-link);
 }
+
+/* Sección del menú */
+nav li {
+    display: inline;
+    
+}
+.menu {
+    background-color: #f8f8f8;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+/* encabezado del menú */
+.menu__header {
+    padding: 0 20% 0 5%;
+    display: flex;
+    align-items: center;
+}
+
+.menu__header img {
+    width: 20%;
+    margin-right: 5%;
+}
+
+.menu__title {
+    font-size: 24px;
+    white-space: nowrap;
+    color: var(--cor-de-title);
+}
+
+/* navegación */
+nav {
+    flex-grow: 1;
+}
+
+/* Lista de menú */
+.menu__list {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu__list__item {
+    display: none;
+    margin: 30px;
+    white-space: nowrap;
+}
+
+.menu__list__item a {
+    text-decoration: none;
+    color: var(--cor-de-title);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu__list__item__contato {
+    padding: 0 5% 0 25%;
+}
+/* Efectos hover */
+.menu__list__item a:hover,
+.menu__list__item__contato a:hover {
+    color: var(--cor-de-hover-link);
+}
+
+
 
 /*En este desafío nosostros gustaríamos que ustedes intentaran utilizar la metodología BEM. 
 
@@ -39,20 +116,106 @@ con una interfaz de usuario compleja, y permite la reutilización del código ex
 Enlace de la documentación oficial!
 https://en.bem.info/methodology/quick-start/*/
 
-/*Sección Menu*/
-
-section.menu{
-
-}
 
 /*Sección Title*/
 
-section.title{
+.title_ {
+    padding: 20px;
+    background-color: #f0f0f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.title__div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Imagenes*/
+.title__dising {
+    position: relative;
+    display: block;
+    margin: 50px auto;
+    width: 40%;
+    z-index: 1;
+}
+
+.title__profile {
+    position: absolute;
+    transform: translate(-100%, -50%); /* Mueve la imagen a la izquierda y arriba para la superposición */
+    z-index: 2;
 
 }
 
-/*Sección About*/
+/* Contenedor de texto */
+.title__container {
+    position: absolute;
+    align-items: center;
+    width: 40%;
+    top: 20%;
+    left: 50%;
+    max-width: 400px;
+    background-color: white;
+    padding: 30px;
+    z-index: 3; /* Asegura que esté por encima de las imágenes */
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
 
+/* Título de la biografía */
+.title__bio {
+    position: relative;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    padding: 0px;
+    z-index: 4; 
+    font-size: 30px;
+}
+
+/* Espacio debajo del título de biografía */
+.title__subsection {
+    margin-top: 20px;
+}
+
+/* Lista de redes sociales */
+.title__network {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+    display: flex;
+    justify-content: space-between; 
+    fx-wrap: wrap;
+}
+
+.title__network__item {
+    margin: 0 10px;
+}
+
+.title__network__item a {
+    text-decoration: none;
+    color: var(--cor-de-title);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.title__network__item a:hover {
+    color: var(--cor-de-hover-link);
+}
+
+.title__network__item img {
+    margin-left: 7px;
+    width: 15px;
+}
+
+/*Sección About*/
 section.about{
 
 }
@@ -92,11 +255,26 @@ Utiliza las referencias de los breakpoints @media abajo */
 
 
 /*Tablet*/
-@media (min-width: 768px) {
+@media (max-width: 800px) {
+        
+    body {
+        height: 100vh;
+    }
 
 /* Menú */
 
-/*title*/
+    .menu__list {
+        overflow: scroll;
+        white-space: nowrap;
+        margin-right: 10%;
+    }
+    .menu__list__item {
+        display: none;
+    }
+
+    .title__container{
+
+    }
 
 /*Skills*/
 
@@ -108,12 +286,52 @@ Utiliza las referencias de los breakpoints @media abajo */
 
 }
 
-/*Mobile*/
-@media (min-width: 425px) {
+/*Mobil*/
+@media (min-width: 450px) {
 
-/*Menu*/
+    /*Menu*/
+    .menu__list__item{
+        display: block;
+    }
 
-/*Titulo*/
+    .menu__list__item__contato {
+        margin-left: auto;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+    }
+
+    /*Titulo*/
+.title__dising {
+    width: 60%;
+}
+
+.title__profile {
+    top: 70%;
+    left: 30%;
+    width: 30%;
+}
+
+.title__container {
+    width: 40%;
+    font-size: 16px; /* Ajustar el tamaño de la fuente para pantallas más pequeñas */
+}
+
+.title__bio {
+    font-size: 100%;
+}
+
+.title__network {
+    align-items: center;
+}
+
+.title__network__item {
+    width: 100%;
+    text-align: center;
+}
+}
 
 /*Sección sobre mi*/
 
@@ -129,4 +347,17 @@ Utiliza las referencias de los breakpoints @media abajo */
 
 /*Footer*/
 
+
+@media (min-width: 1440px) {
+
+/*Titulo*/
+    .title__profile{
+    top: 60%; 
+    left: 35%; 
+    width: 20%;
+    }
+
+    .title__container{
+        max-width: 600px;
+    }
 }
