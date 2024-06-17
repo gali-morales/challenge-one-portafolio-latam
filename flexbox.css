@@ -1,0 +1,71 @@
+
+/* Sección del menú */
+nav li {
+    display: inline;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu__header {
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    flex-grow: 1;
+}
+
+.menu__list {
+    display: flex;
+}
+
+/* Título */
+.title_ {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.title__div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title__dising {
+    position: relative;
+    display: block;
+}
+
+.title__container {
+    position: absolute;
+    transform: none;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* About */
+.about__container {
+    flex-direction: column;
+}
+
+/* Skills */
+.skills__line, .hobbies__line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.section__box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
